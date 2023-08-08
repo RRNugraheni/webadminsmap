@@ -87,13 +87,21 @@ const DataAPAR = () => {
               </Link>
               <div className="card">
                 <div className="card-body">
-                  <table className="table table-hover">
+                  <table className="table table-responsive">
                     <thead>
                       <tr>
                         <th> No </th>
                         <th> ID Apar </th>
                         <th> Jenis Apar </th>
                         <th> Lokasi APAR </th>
+                        <th> Berat Cartridge </th>
+                        <th> Berat Tabung </th>
+                        <th> Corong </th>
+                        <th> Nama Operator </th>
+                        <th> Pin Segel </th>
+                        <th> Selang </th>
+                        <th> Tabung </th>
+                        <th> Tekanan </th>
                         <th> Kondisi </th>
                         <th> Tanggal Terakhir </th>
                         <th> Keterangan </th>
@@ -107,15 +115,18 @@ const DataAPAR = () => {
                           <td> {data.id_apar} </td>
                           <td> {data.jenis} </td>
                           <td> {data.lokasi} </td>
-                          <td> {data?.kondisi} </td>
+                          <td> {data.beratCartridge ? data.beratCartridge : "-" } </td>
+                          <td> {data.beratTabung ? data.beratTabung : "-" } </td>
+                          <td> {data.corong ? data.corong : "-"} </td>
+                          <td> {data.name ? data.name : "-"} </td>
+                          <td> {data.pinSegel ? data.pinSegel : "-"} </td>
+                          <td> {data.selang ? data.selang : "-"} </td>
+                          <td> {data.tabung ? data.tabung : "-"} </td>
+                          <td> {data.tekanan ? data.tekanan : "-" } </td>
+                          <td> {data?.kondisi ? data?.kondisi : "-"} </td>
                           <td> {data?.tanggal?.toDate().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })} </td>
-                          <td> {data?.keterangan} </td>
+                          <td> {data?.keterangan ? data?.keterangan : "-"} </td>
                           <td>
-                            {/* <Link to={`?menu=data_apar&act=update&id=${data.id}`}>
-                              <button type="button" className="btn btn-primary">
-                                <i className="fa fa-pencil-square-o"></i> Detail
-                              </button>
-                            </Link> */}
                             <Link to={`/apar/update/${data.id}`}>
                               <button type="button" className="btn btn-primary">
                                 <i className="fa fa-pencil-square-o"></i> Update
@@ -129,6 +140,7 @@ const DataAPAR = () => {
                       ))}
                     </tbody>
                   </table>
+
                 </div>
               </div>
             </div>
