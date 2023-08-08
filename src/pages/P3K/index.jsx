@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { initializeApp } from 'firebase/app';
-import { getFirestore, collection, query, where, orderBy, getDocs, deleteDoc, doc} from 'firebase/firestore';
+import { getFirestore, collection, query, where, orderBy, getDocs, deleteDoc, doc } from 'firebase/firestore';
 import firebase from 'firebase/compat/app';
 import Navbar from '../../components/Navbar';
 import Sidebar from '../../components/Sidebar';
@@ -88,13 +88,33 @@ const DataP3K = () => {
               </Link>
               <div className="card">
                 <div className="card-body">
-                  <table className="table table-hover">
+                  <table className="table table-responsive">
                     <thead>
                       <tr>
                         <th> No </th>
                         <th> ID P3K </th>
                         <th> Lokasi </th>
                         <th> Terakhir Inspeksi </th>
+                        <th> Alkohol </th>
+                        <th> Aquade </th>
+                        <th> Betadin </th>
+                        <th> Buku Catatan </th>
+                        <th> Buku Panduan </th>
+                        <th> Daftar Isi </th>
+                        <th> Gelas </th>
+                        <th> Gunting </th>
+                        <th> Kain Segitiga </th>
+                        <th> Kantong Plastik </th>
+                        <th> Kapas </th>
+                        <th> Kasa </th>
+                        <th> Lampu Senter </th>
+                        <th> Masker </th>
+                        <th> Nama </th>
+                        <th> Peniti </th>
+                        <th> Perban </th>
+                        <th> Pinset </th>
+                        <th> Plester Cepat </th>
+                        <th> Sarung Tangan </th>
                         <th> Kondisi </th>
                         <th> Keterangan </th>
                         <th> Aksi </th>
@@ -107,14 +127,29 @@ const DataP3K = () => {
                           <td> {data.id_p3k} </td>
                           <td> {data.lokasi} </td>
                           <td> {data.tanggal?.toDate().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })} </td>
+                          <td> {data.alkohol} </td>
+                          <td> {data.aquade} </td>
+                          <td> {data.betadin} </td>
+                          <td> {data.bukuCatatan} </td>
+                          <td> {data.bukuPanduan} </td>
+                          <td> {data.daftarIsi} </td>
+                          <td> {data.gelas} </td>
+                          <td> {data.gunting} </td>
+                          <td> {data.kainSegitiga} </td>
+                          <td> {data.kantongPlastik} </td>
+                          <td> {data.kapas} </td>
+                          <td> {data.kasa} </td>
+                          <td> {data.lampuSenter} </td>
+                          <td> {data.masker} </td>
+                          <td> {data.name} </td>
+                          <td> {data.peniti} </td>
+                          <td> {data.perban} </td>
+                          <td> {data.pinset} </td>
+                          <td> {data.plesterCepat} </td>
+                          <td> {data.sarungTangan} </td>
                           <td> {data.kondisi} </td>
                           <td> {data.keterangan} </td>
                           <td>
-                            {/* <Link to={`?menu=data_p3k&act=update&id=${data.id}`}>
-                              <button type="button" className="btn btn-primary">
-                                <i className="fa fa-pencil-square-o"></i> Detail
-                              </button>
-                            </Link> */}
                             <Link to={`/p3k/update/${data.id}`}>
                               <button type="button" className="btn btn-primary">
                                 <i className="fa fa-pencil-square-o"></i> Update
